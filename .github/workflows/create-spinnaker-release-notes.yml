@@ -41,6 +41,10 @@ jobs:
         with:
           name: "payload.json"
           json: ${{ toJson(github.event.client_payload) }}
+          
+      - name: echo variable
+        run: |
+          echo ${{ github.event.client_payload.prerelease }}
 
       - name: generate template rendered for LTS
         if: ${{ github.event.client_payload.prerelease == 'false' }}

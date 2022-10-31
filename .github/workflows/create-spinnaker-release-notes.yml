@@ -40,7 +40,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.1
         with:
           name: "payload.json"
-          json: ${{ github.event.client_payload }}
+          json: ${{ toJson(github.event.client_payload) }}
 
       - name: generate template rendered for LTS
         if: ${{ github.event.client_payload.prerelease == 'false' }}
